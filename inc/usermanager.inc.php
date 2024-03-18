@@ -275,7 +275,7 @@ class SB_UserManager extends SB_ErrorHandler
                 'domain' => '',
                 'secure' => isset($_SERVER["HTTPS"]),
                 'httponly' => $httponly,
-                'samesite' => 'Strict' // None || Lax  || Strict
+                'samesite' => 'None' // None || Lax  || Strict
                 );
             setcookie($name, $value, $arr_cookie_options);
         }
