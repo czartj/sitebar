@@ -54,6 +54,7 @@ define ('PP_ERR__FAVICON_TOO_BIG',      501); // Fatal error
 define ('PP_ERR__FAVICON_WRONG_SIZE',   502); // Fatal error
 define ('PP_ERR__FAVICON_WRONG_FORMAT', 503); // Fatal error
 
+#[\AllowDynamicProperties]
 class SB_HTTPStream extends SB_ErrorHandler
 {
     // Handle for the connection to the

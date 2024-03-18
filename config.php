@@ -412,9 +412,16 @@ MSG;
     function loadSQL($filename)
     {
         $res = $this->db->raw('select @@innodb_version version');
-        $rec = $this->db->fetchRecord($res);
-        $version = $rec['version'];
-        $old = version_compare($version,'5.6.5') < 0;
+        if ( $res !== false )
+        {
+            $rec = $this->db->fetchRecord($res);
+            $version = $rec['version'];
+            $old = version_compare($version,'5.6.5') < 0;
+        }
+        else
+        {
+            $old=false;
+        }
 
         if (!($fp=fopen($filename,'r')))
         {

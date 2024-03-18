@@ -17,7 +17,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.     *
  ******************************************************************************/
 
-define('SB_DEVELOPMENT', false);
+define('SB_DEVELOPMENT', true);
 
 // Change the "false" to "true" to perform logging on basic level in production
 // software.
@@ -36,7 +36,8 @@ use Tracy\Debugger;
 if (SB_SHOW_PHP_ERRORS)
 {
     error_reporting(E_ALL | E_STRICT); // We want to see all errors, regardless of php.ini
-    Debugger::enable(Debugger::DEVELOPMENT);
+//    Debugger::enable(Debugger::DEVELOPMENT);
+    Debugger::enable(Debugger::Development, __DIR__ . '/log');
 }
 // This should be a static class variable, if PHP 4 were OO language :-)
 $SB_errorHandler__errorCount = 0;
@@ -302,7 +303,7 @@ class SB_ErrorHandler
         if (SB_DEBUGGING)
         {
             $this->useHandler(false);
-            Debugger::fireLog($prefix.": ".$data);
+            Debugger::Log($prefix.": ".$data);
             $this->useHandler();
         }
         return $data;
