@@ -206,14 +206,7 @@ class SB_Localizer
 
         if ($params)
         {
-            if (is_array($params))
-            {
-                $lmsg = vsprintf($lsmg, $params);
-            }
-            else
-            {
-                $lmsg = sprintf($lsmg, $params);
-            }
+            $lmsg = vsprintf($lmsg, $params);
         }
 
         return $lmsg;
