@@ -43,6 +43,7 @@ function SB_trOrderCmp(&$a, &$b)
     return ($a->order > $b->order) ? 1 : -1;
 }
 
+#[\AllowDynamicProperties]
 class SB_Tree_Link extends SB_ErrorHandler
 {
     var $id;
@@ -133,6 +134,7 @@ class SB_Tree_Link extends SB_ErrorHandler
     }
 }
 
+#[\AllowDynamicProperties]
 class SB_Tree_Node extends SB_ErrorHandler
 {
     var $_nodes = array();

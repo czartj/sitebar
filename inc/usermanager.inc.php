@@ -25,6 +25,7 @@ define ('SB_ADMIN',  1);
 define ('SB_ANONYM', 2);
 define ('SB_ADMIN_GROUP',  1);
 
+#[\AllowDynamicProperties]
 class SB_UserManager extends SB_ErrorHandler
 {
     var $user = null;
