@@ -336,7 +336,7 @@ class SB_Localizer
 
 function SB_T($msg, $params=null)
 {
-    if (trim($msg)=='')
+    if (trim($msg ?? '')=='')
     {
         return $msg;
     }

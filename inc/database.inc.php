@@ -246,7 +246,7 @@ class SB_Database extends SB_ErrorHandler
     {
         if (!is_numeric($item))
         {
-            $item = stripslashes($item);
+            $item = stripslashes($item ?? '');
         }
     }
 
@@ -497,12 +497,15 @@ class SB_DatabaseMySQL extends SB_Database
 
     function hasDB($db)
     {
-        return mysqli_select_db($this->connection, $db) ;
+        mysqli_report(MYSQLI_REPORT_OFF);
+        $res = mysqli_select_db($this->connection, $db);
+        return $res;
     }
 
     function hasTable($table)
     {
         $this->useHandler(false);
+        mysqli_report(MYSQLI_REPORT_OFF);
         $fields = @mysqli_query($this->connection, "SHOW COLUMNS FROM ".$table);
         $this->useHandler(true);
         return $fields;

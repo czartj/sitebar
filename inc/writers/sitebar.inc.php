@@ -1000,7 +1000,7 @@ _DOC;
 
         $sort_info = '';
 
-        if (strlen($link->sort_info))
+        if (strlen($link->sort_info ?? ''))
         {
             $sort_info = '<span class="sort_info">' . $link->sort_info . '&nbsp;</span>';
         }
