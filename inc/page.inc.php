@@ -24,6 +24,8 @@
 */
 define( 'ABS_BASE_URL', null);
 
+@include_once('./adm/config.inc.php');
+
 define( 'MIN_VERSION',  '4.1.0');
 define( 'CHARSET',      'charset=UTF-8');
 define( 'CONTENT_TYPE', 'text/html; '.CHARSET);
