@@ -18,6 +18,9 @@
 
 /*** Global variables *********************************************************/
 
+//var SB_CookieOpts = ';SameSite=strict;Secure';
+var SB_CookieOpts = ';SameSite=strict';
+
 // Skin directory
 var SB_gSkinDir = null;
 
@@ -139,13 +142,13 @@ function SB_buttonOut(btn, force)
 function SB_storeSearch()
 {
     var searchText = document.getElementById('fldSearch').value;
-    document.cookie = 'SB3SEARCH='+encodeURIComponent(searchText)+";SameSite=None;Secure";
+    document.cookie = 'SB3SEARCH='+encodeURIComponent(searchText)+SB_CookieOpts;
 }
 
 function SB_storePosition()
 {
-    document.cookie = 'SB3TOP='+SB_getTop()+";SameSite=None;Secure";
-    document.cookie = 'SB3LEFT='+SB_getLeft()+";SameSite=None;Secure";
+    document.cookie = 'SB3TOP='+SB_getTop()+SB_CookieOpts;
+    document.cookie = 'SB3LEFT='+SB_getLeft()+SB_CookieOpts;
 }
 
 function SB_hasClass(obj, className)
@@ -732,7 +735,7 @@ function SB_WFI(imgObj)
 
 function SB_initCommander()
 {
-    document.cookie = 'SB3COOKIE=1'+";SameSite=None;Secure";
+    document.cookie = 'SB3COOKIE=1'+SB_CookieOpts;
 
     if (document.getElementById('focused'))
     {
@@ -880,7 +883,7 @@ function SB_saveState(id, state)
 function SB_saveCookie(value)
 {
     var expires = new Date(new Date().getTime()+1000*60*60*24*7).toGMTString();
-    document.cookie = 'SB3NODES='+value+'; expires=' + expires+";SameSite=None;Secure";
+    document.cookie = 'SB3NODES='+value+'; expires=' + expires+SB_CookieOpts;
 }
 
 /**
@@ -1224,7 +1227,7 @@ function SB_menuOn(event, obj)
 
     if (menuDIV=='node')
     {
-        document.cookie = 'SB3CTXROOT='+obj.id.substr(1)+";SameSite=None;Secure";
+        document.cookie = 'SB3CTXROOT='+obj.id.substr(1)+SB_CookieOpts;
     }
 
     // Mark folder as opened
