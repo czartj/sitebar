@@ -18,8 +18,17 @@
 
 /*** Global variables *********************************************************/
 
-//var SB_CookieOpts = ';SameSite=strict;Secure';
-var SB_CookieOpts = ';SameSite=strict';
+var SB_CookieOpts = ';SameSite=strict;Secure';
+
+if (window.location.protocol == 'http:') {
+
+    console.log("you are accessing us via "
+        + "an insecure protocol (HTTP). "
+        + "Not using Seucre cookies....");
+
+    SB_CookieOpts = ';SameSite=strict';
+
+}
 
 // Skin directory
 var SB_gSkinDir = null;
